@@ -46,18 +46,32 @@ const services = [
 export default function ServiceCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const [isAnimating, setIsAnimating] = useState(false)
   const timerRef = useRef<NodeJS.Timeout | null>(null)
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % services.length)
+    setIsAnimating(true)
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % services.length)
+      setIsAnimating(false)
+    }, 300) // Half of the transition time for a smooth exit-enter effect
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + services.length) % services.length)
+    setIsAnimating(true)
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + services.length) % services.length)
+      setIsAnimating(false)
+    }, 300) // Half of the transition time for a smooth exit-enter effect
   }
 
   const goToSlide = (index: number) => {
-    setCurrentIndex(index)
+    if (index === currentIndex) return
+    setIsAnimating(true)
+    setTimeout(() => {
+      setCurrentIndex(index)
+      setIsAnimating(false)
+    }, 300) // Half of the transition time for a smooth exit-enter effect
   }
 
   useEffect(() => {
@@ -80,21 +94,27 @@ export default function ServiceCarousel() {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Enlarged Service Card */}
+      {/* Enlarged Service Card with Animation */}
       <div className="bg-white/10 backdrop-blur-md p-8 md:p-12 rounded-xl border border-white/20 min-h-[350px] md:min-h-[400px] flex flex-col items-center justify-center w-full mx-auto">
-        <div className="h-20 w-20 md:h-24 md:w-24 rounded-full bg-[#18794E] flex items-center justify-center mb-8">
-          <div className="text-white">{services[currentIndex].icon}</div>
-        </div>
-        <h3 className="text-3xl md:text-4xl font-semibold text-white mb-4">{services[currentIndex].title}</h3>
-        <p className="text-xl md:text-2xl text-gray-200 text-center mb-8 max-w-2xl">
-          {services[currentIndex].description}
-        </p>
-        <Link
-          href={services[currentIndex].link}
-          className="px-8 py-3 bg-[#18794E] text-white text-lg rounded-full hover:bg-[#18794E]/90 transition-colors"
+        <div
+          className={`transition-all duration-500 ease-out ${
+            isAnimating ? "opacity-0 scale-95" : "opacity-100 scale-100"
+          }`}
         >
-          Learn More
-        </Link>
+          <div className="h-20 w-20 md:h-24 md:w-24 rounded-full bg-[#18794E] flex items-center justify-center mb-8">
+            <div className="text-white">{services[currentIndex].icon}</div>
+          </div>
+          <h3 className="text-3xl md:text-4xl font-semibold text-white mb-4">{services[currentIndex].title}</h3>
+          <p className="text-xl md:text-2xl text-gray-200 text-center mb-8 max-w-2xl">
+            {services[currentIndex].description}
+          </p>
+          <Link
+            href={services[currentIndex].link}
+            className="px-8 py-3 bg-[#18794E] text-white text-lg rounded-full hover:bg-[#18794E]/90 transition-colors"
+          >
+            Learn More
+          </Link>
+        </div>
       </div>
 
       {/* Navigation Arrows - Positioned outside the card */}
@@ -102,6 +122,7 @@ export default function ServiceCarousel() {
         onClick={prevSlide}
         className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 bg-white/20 backdrop-blur-md p-3 rounded-full hover:bg-white/30 transition-colors"
         aria-label="Previous service"
+        disabled={isAnimating}
       >
         <ChevronLeft className="h-8 w-8 text-white" />
       </button>
@@ -109,6 +130,7 @@ export default function ServiceCarousel() {
         onClick={nextSlide}
         className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 bg-white/20 backdrop-blur-md p-3 rounded-full hover:bg-white/30 transition-colors"
         aria-label="Next service"
+        disabled={isAnimating}
       >
         <ChevronRight className="h-8 w-8 text-white" />
       </button>
@@ -121,6 +143,7 @@ export default function ServiceCarousel() {
             onClick={() => goToSlide(index)}
             className={`h-3 transition-all rounded-full ${index === currentIndex ? "bg-white w-8" : "bg-white/50 w-3"}`}
             aria-label={`Go to service ${index + 1}`}
+            disabled={isAnimating}
           />
         ))}
       </div>

@@ -15,16 +15,11 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
-      {/* Content Container - Increased width for larger impact */}
+      {/* Content Container - Switched layout direction */}
       <div className="container relative z-10 px-4 sm:px-6 py-12 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Side - Service Carousel (Enlarged) */}
-          <div className="order-2 lg:order-1 w-full">
-            <ServiceCarousel />
-          </div>
-
-          {/* Right Side - Main Content (Enlarged text) */}
-          <div className="order-1 lg:order-2">
+          {/* Left Side - Main Content (was on right) */}
+          <div className="order-1">
             <div className="text-center lg:text-left">
               <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl md:text-7xl mb-8">
                 Global Logistics <span className="text-[#4ade80]">One-Stop Solutions</span>
@@ -34,6 +29,11 @@ export default function HeroSection() {
                 your global trade.
               </p>
             </div>
+          </div>
+
+          {/* Right Side - Service Carousel (was on left) */}
+          <div className="order-2">
+            <ServiceCarousel />
           </div>
         </div>
       </div>
