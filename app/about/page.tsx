@@ -13,19 +13,11 @@ export default function AboutPage() {
       <Navigation />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative py-20 bg-gray-900 text-white">
-          <div
-            className="absolute inset-0 opacity-40"
-            style={{
-              backgroundImage: `url('/placeholder.svg?key=agzpx')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
+        <section className="relative py-20 bg-[#004466] text-white">
           <div className="container relative z-10">
             <div className="max-w-3xl">
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">About Linheim Logistik</h1>
-              <p className="mt-6 text-lg text-gray-300">
+              <p className="mt-6 text-lg text-gray-200">
                 Your trusted partner for global logistics and supply chain solutions.
               </p>
             </div>
