@@ -206,27 +206,6 @@ export default function LandTransportPage() {
           </div>
         </section>
 
-        {/* Coverage Map */}
-        <section className="py-16 bg-white">
-          <div className="container">
-            <h2 className="text-3xl font-bold mb-8 text-center">Our European Coverage</h2>
-            <div className="rounded-lg overflow-hidden shadow-sm border border-gray-200">
-              <div
-                className="w-full h-96 bg-gray-200"
-                style={{
-                  backgroundImage: `url('/placeholder.svg?key=ks9dn')`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-                aria-label="European Road Transport Network Map"
-              />
-            </div>
-            <div className="mt-8 text-center text-gray-600">
-              <p>Comprehensive coverage across all major European countries and routes</p>
-            </div>
-          </div>
-        </section>
-
         {/* CTA Section */}
         <section className="py-16 bg-[#18794E]">
           <div className="container">

@@ -164,40 +164,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Global Presence */}
-        <section className="py-16 bg-gray-50">
-          <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold">Our Global Presence</h2>
-              <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-                Strategically located offices and warehouses to serve your logistics needs worldwide.
-              </p>
-            </div>
-
-            <div className="rounded-lg overflow-hidden shadow-sm border border-gray-200">
-              <div
-                className="w-full h-96 bg-gray-200"
-                style={{
-                  backgroundImage: `url('/placeholder.svg?key=z6l0q')`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-                aria-label="Global Logistics Network Map"
-              />
-            </div>
-
-            <div className="mt-8 text-center">
-              <p className="text-gray-600 mb-4">
-                With headquarters in Germany and offices across key global markets, we provide seamless logistics
-                services worldwide.
-              </p>
-              <Button asChild variant="outline" className="border-[#18794E] text-[#18794E] hover:bg-[#18794E]/10">
-                <Link href="/contact">Contact Our Team</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-
         {/* CTA Section */}
         <section className="py-16 bg-[#18794E]">
           <div className="container">

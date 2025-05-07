@@ -124,27 +124,6 @@ export default function AirFreightPage() {
           </div>
         </section>
 
-        {/* Network Image */}
-        <section className="py-16 bg-gray-50">
-          <div className="container">
-            <h2 className="text-3xl font-bold mb-8 text-center">Our Global Air Freight Network</h2>
-            <div className="rounded-lg overflow-hidden shadow-sm border border-gray-200">
-              <div
-                className="w-full h-96 bg-gray-200"
-                style={{
-                  backgroundImage: `url('/placeholder.svg?key=mxklm')`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-                aria-label="Global Air Freight Network Diagram"
-              />
-            </div>
-            <div className="mt-8 text-center text-gray-600">
-              <p>Connected to all major airports worldwide with reliable air freight services</p>
-            </div>
-          </div>
-        </section>
-
         {/* CTA Section */}
         <section className="py-16 bg-[#18794E]">
           <div className="container">
