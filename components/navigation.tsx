@@ -7,26 +7,10 @@ import { Menu, X, ChevronDown, Search, Globe } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
 import QuoteModal from "@/components/quote-modal"
-import { useRouter, usePathname } from "next/navigation"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
-
-  const router = useRouter()
-  const pathname = usePathname()
-  const currentLang = pathname.startsWith("/de") ? "Deutsch" : "English"
-
-  // Function to handle language switching
-  const switchLanguage = (lang: "en" | "de") => {
-    if (lang === "de" && !pathname.startsWith("/de")) {
-      // Switch to German - add /de prefix
-      router.push(`/de${pathname}`)
-    } else if (lang === "en" && pathname.startsWith("/de")) {
-      // Switch to English - remove /de prefix
-      router.push(pathname.replace(/^\/de/, ""))
-    }
-  }
 
   return (
     <>
@@ -99,23 +83,13 @@ export default function Navigation() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="flex items-center text-sm font-medium">
-                  <span className="mr-1">{currentLang}</span>
+                  <span className="mr-1">English</span>
                   <Globe className="h-4 w-4" />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem
-                  onClick={() => switchLanguage("en")}
-                  className={currentLang === "English" ? "bg-gray-100" : ""}
-                >
-                  English
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => switchLanguage("de")}
-                  className={currentLang === "Deutsch" ? "bg-gray-100" : ""}
-                >
-                  Deutsch
-                </DropdownMenuItem>
+                <DropdownMenuItem>English</DropdownMenuItem>
+                <DropdownMenuItem>Deutsch</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -213,24 +187,6 @@ export default function Navigation() {
               >
                 Contact
               </Link>
-
-              <div className="flex items-center space-x-2 py-2">
-                <Globe className="h-4 w-4" />
-                <span className="text-sm font-medium">Language:</span>
-                <button
-                  onClick={() => switchLanguage("en")}
-                  className={`text-sm ${currentLang === "English" ? "font-bold text-[#18794E]" : ""}`}
-                >
-                  English
-                </button>
-                <span className="text-sm">|</span>
-                <button
-                  onClick={() => switchLanguage("de")}
-                  className={`text-sm ${currentLang === "Deutsch" ? "font-bold text-[#18794E]" : ""}`}
-                >
-                  Deutsch
-                </button>
-              </div>
 
               <Button
                 onClick={() => {
