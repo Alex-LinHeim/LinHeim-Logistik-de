@@ -3,9 +3,9 @@ import Navigation from "@/components/navigation"
 import HeroSection from "@/components/hero-section"
 import PartnersCarousel from "@/components/partners-carousel"
 import TestimonialsCarousel from "@/components/testimonials-carousel"
-import Footer from "@/components/footer"
-import GetQuoteSection from "@/components/get-quote-section"
+import StatisticsSection from "@/components/statistics-section"
 import MapClientWrapper from "@/components/map-client-wrapper"
+import Footer from "@/components/footer"
 
 export default function HomePage() {
   return (
@@ -16,7 +16,7 @@ export default function HomePage() {
         <HeroSection />
         <PartnersCarousel />
         <TestimonialsCarousel />
-        <GetQuoteSection darkBackground />
+        <StatisticsSection />
         <MapClientWrapper />
       </main>
       <Footer />
