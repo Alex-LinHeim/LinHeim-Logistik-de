@@ -1,6 +1,7 @@
 import TopBar from "@/components/top-bar"
 import Navigation from "@/components/navigation"
 import HeroSection from "@/components/hero-section"
+import WorkflowInfographic from "@/components/workflow-infographic"
 import PartnersCarousel from "@/components/partners-carousel"
 import TestimonialsCarousel from "@/components/testimonials-carousel"
 import StatisticsSection from "@/components/statistics-section"
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Navigation />
       <main className="flex-grow">
         <HeroSection />
+        <WorkflowInfographic />
         <PartnersCarousel />
         <TestimonialsCarousel />
         <StatisticsSection />
