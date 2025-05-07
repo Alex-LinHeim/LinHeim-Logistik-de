@@ -9,7 +9,9 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
-          backgroundImage: `url('/placeholder.svg?key=jdnal')`,
+          backgroundImage: "url('/images/hero-background.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
