@@ -5,7 +5,7 @@ import { Ship, Truck, Plane, FileCheck, Warehouse, Package } from "lucide-react"
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-32 bg-gradient-to-br from-[#f0f9ff] via-[#e6f7ff] to-[#f0f9ff]">
+    <section className="relative overflow-hidden py-20 md:py-32 bg-[#0c4b6e]">
       <div className="absolute inset-0 z-0 opacity-20">
         <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
           <defs>
@@ -18,10 +18,10 @@ export default function HeroSection() {
       </div>
       <div className="container relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-            Global Logistics <span className="text-[#18794E]">One-Stop Solutions</span>
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
+            Global Logistics <span className="text-[#4ade80]">One-Stop Solutions</span>
           </h1>
-          <p className="mt-6 text-lg text-gray-600 md:text-xl">
+          <p className="mt-6 text-lg text-gray-200 md:text-xl">
             Comprehensive logistics services including sea, land, air, customs clearance, and warehousing to support
             your global trade.
           </p>
