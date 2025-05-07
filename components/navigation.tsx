@@ -8,34 +8,6 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Button } from "@/components/ui/button"
 import QuoteModal from "@/components/quote-modal"
 
-function isGermanPath() {
-  if (typeof window !== "undefined") {
-    return window.location.pathname.startsWith("/de")
-  }
-  return false
-}
-
-function switchLanguage(lang: "en" | "de") {
-  if (typeof window !== "undefined") {
-    const currentPath = window.location.pathname
-
-    if (lang === "en") {
-      // If switching to English, remove /de prefix
-      const englishPath = currentPath.replace(/^\/de/, "")
-      window.location.href = englishPath || "/"
-    } else {
-      // If switching to German, add /de prefix
-      if (currentPath.startsWith("/de")) {
-        // Already on German path
-        return
-      }
-
-      const germanPath = `/de${currentPath === "/" ? "" : currentPath}`
-      window.location.href = germanPath
-    }
-  }
-}
-
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
@@ -111,13 +83,13 @@ export default function Navigation() {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="flex items-center text-sm font-medium">
-                  <span className="mr-1">{isGermanPath() ? "Deutsch" : "English"}</span>
+                  <span className="mr-1">English</span>
                   <Globe className="h-4 w-4" />
                 </button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => switchLanguage("en")}>English</DropdownMenuItem>
-                <DropdownMenuItem onClick={() => switchLanguage("de")}>Deutsch</DropdownMenuItem>
+                <DropdownMenuItem>English</DropdownMenuItem>
+                <DropdownMenuItem>Deutsch</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -215,22 +187,6 @@ export default function Navigation() {
               >
                 Contact
               </Link>
-
-              {/* Language Switcher */}
-              <div className="flex items-center justify-center space-x-4 mt-4 mb-2">
-                <button
-                  onClick={() => switchLanguage("en")}
-                  className={`text-sm py-2 px-3 rounded ${!isGermanPath() ? "bg-gray-100" : ""}`}
-                >
-                  English
-                </button>
-                <button
-                  onClick={() => switchLanguage("de")}
-                  className={`text-sm py-2 px-3 rounded ${isGermanPath() ? "bg-gray-100" : ""}`}
-                >
-                  Deutsch
-                </button>
-              </div>
 
               <Button
                 onClick={() => {
