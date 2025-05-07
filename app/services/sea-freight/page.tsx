@@ -155,6 +155,28 @@ export default function SeaFreightPage() {
           </div>
         </section>
 
+        {/* Why Choose Us Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="container">
+            <h2 className="text-3xl font-bold mb-8 text-center">Why Choose Us</h2>
+            <div className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+              <ul className="space-y-4">
+                {[
+                  "Extensive global carrier network",
+                  "Competitive FCL/LCL pricing",
+                  "End-to-end visibility and documentation handling",
+                  "Dedicated support for complex shipments",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start">
+                    <Check className="h-5 w-5 text-[#18794E] mr-3 mt-0.5" />
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-16 bg-[#18794E]">
           <div className="container">
